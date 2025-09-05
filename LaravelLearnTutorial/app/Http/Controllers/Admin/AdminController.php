@@ -22,7 +22,7 @@ class AdminController extends Controller
         $positives = Positive::all();
         $products = Product::all();
         $histories = History::all();
-        $users = User::a11();
+        $users = User::all();
         $plans = Plan::all();
         $subscriptions = Subscription::all();
 
@@ -49,7 +49,7 @@ class AdminController extends Controller
      */
     public function auth(AuthAdminRequest $request){
         if($request->validated()){
-            if(auth()->guard('admins')->attempt([
+            if(auth()->guard('admin')->attempt([
                 'email' => $request->email,
                 'password' => $request->password,
             ])){
