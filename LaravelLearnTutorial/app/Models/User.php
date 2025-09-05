@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'stripe_id',
+        'number_of_hearts'
     ];
 
     /**
@@ -44,5 +46,12 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function histories(){
+        return $this->hasMany(History::class);
+    }
+    public function subscriptions(){
+        return $this->hasMany(Subscription::class);
     }
 }
