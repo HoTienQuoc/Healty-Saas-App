@@ -11,7 +11,7 @@ class AddPositiveRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,6 +23,16 @@ class AddPositiveRequest extends FormRequest
     {
         return [
             //
+            'name' => 'required|max:255',
+            'description' => 'required|max:5000',
+            'product_id' => 'required'
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'product_id.required' => 'Please choose a product.',
         ];
     }
 }

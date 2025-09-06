@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\PositiveController;
+
 
 Route::get('/', [AdminController::class,'login'])->name('admin.login');
 Route::post('/admin/auth', [AdminController::class,'auth'])->name('admin.auth');
@@ -21,6 +23,18 @@ Route::prefix('admin')->middleware('adminMiddleware')->group(function(){
             'update' => 'admin.products.update',
             'edit' => 'admin.products.edit',
             'destroy' => 'admin.products.destroy',
+        ]
+    ]);
+
+    //positive's routes
+    Route::resource('positives', PositiveController::class, [
+        'names' => [
+            'index' => 'admin.positives.index',
+            'create' => 'admin.positives.create',
+            'store' => 'admin.positives.store',
+            'update' => 'admin.positives.update',
+            'edit' => 'admin.positives.edit',
+            'destroy' => 'admin.positives.destroy',
         ]
     ]);
 });
