@@ -27,13 +27,13 @@ class AdminController extends Controller
         $subscriptions = Subscription::all();
 
         return view('admin.dashboard')->with([
-            'Negatives' => $negatives,
-            'Positives'=>$positives,
-            'Products'=>$products,
-            'History'=>$histories,
-            'Users'=>$users,
-            'Plans'=>$plans,
-            'Subscriptions'=>$subscriptions,
+            'negatives' => $negatives,
+            'positives'=>$positives,
+            'products'=>$products,
+            'histories'=>$histories,
+            'users'=>$users,
+            'plans'=>$plans,
+            'subscriptions'=>$subscriptions,
         ]);
     }
 
@@ -68,6 +68,7 @@ class AdminController extends Controller
      * Logout the admin
      */
     public function logout(){
-
+        auth()->guard('admin')->logout();
+        return redirect()->route('admin.login');
     }
 }

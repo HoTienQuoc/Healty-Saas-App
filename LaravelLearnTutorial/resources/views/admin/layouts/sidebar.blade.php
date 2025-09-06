@@ -1,7 +1,7 @@
 <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark rounded" style="width: 280px;">
     <ul class="nav nav-pills flex-column mb-auto">
         <li>
-            <a href="#" class="nav-link text-white">
+            <a href="{{route('admin.index')}}" class="nav-link text-white">
                 <i class="fas fa-dashboard"></i> Dashboard
             </a>
         </li>
@@ -47,13 +47,16 @@
             <img src="https://cdn.pixabay.com/photo/2021/07/02/04/48/user-6380868_1280.png" alt="" width="32" height="32" class="rounded-circle me-2">
             <strong>
                 <!-- admin name here -->
+                {{ auth()->guard('admin')->user()->name }}
             </strong>
         </a>
         <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
             <li>
-                <form id="adminLogout" action="#" method="post">
+                <form id="adminLogout" action="{{route('admin.logout')}}" method="post">
+                    @csrf
                 </form>
                 <a class="dropdown-item" href="#"
+                    onclick="document.getElementById('adminLogout').submit();"
                 >Sign out</a>
             </li>
         </ul>

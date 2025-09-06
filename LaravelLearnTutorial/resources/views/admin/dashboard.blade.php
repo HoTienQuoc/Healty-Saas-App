@@ -1,6 +1,14 @@
+@extends('admin.layouts.app')
+
+@section('title')
+    Dashboard
+@endsection
+
+@section('content')
 <div class="row my-5">
     <div class="col-md-4">
         <!-- sidebar here -->
+        @include('admin.layouts.sidebar')
     </div>
     <div class="col-md-8">
         <div class="container">
@@ -18,6 +26,7 @@
                                 <div class="col-8">
                                     <h2 class="d-flex align-items-center mb-0">
                                         <!-- products count here -->
+                                        {{$products->count()}}
                                     </h2>
                                 </div>
                             </div>
@@ -37,6 +46,7 @@
                                 <div class="col-8">
                                     <h2 class="d-flex align-items-center mb-0">
                                         <!-- positives count here -->
+                                        {{$positives->count()}}
                                     </h2>
                                 </div>
                             </div>
@@ -56,6 +66,7 @@
                                 <div class="col-8">
                                     <h2 class="d-flex align-items-center mb-0">
                                         <!-- negatives count here -->
+                                        {{$negatives->count()}}
                                     </h2>
                                 </div>
                             </div>
@@ -75,6 +86,7 @@
                                 <div class="col-8">
                                     <h2 class="d-flex align-items-center mb-0">
                                         <!-- histories count here -->
+                                        {{$histories->count()}}
                                     </h2>
                                 </div>
                             </div>
@@ -94,6 +106,7 @@
                                 <div class="col-8">
                                     <h2 class="d-flex align-items-center mb-0">
                                         <!-- users count here -->
+                                        {{$users->count()}}
                                     </h2>
                                 </div>
                             </div>
@@ -113,6 +126,7 @@
                                 <div class="col-8">
                                     <h2 class="d-flex align-items-center mb-0">
                                         <!-- plans count here -->
+                                        {{$plans->count()}}
                                     </h2>
                                 </div>
                             </div>
@@ -132,6 +146,7 @@
                                 <div class="col-8">
                                     <h2 class="d-flex align-items-center mb-0">
                                         <!-- subscriptions count here -->
+                                        {{$subscriptions->count()}}
                                     </h2>
                                 </div>
                             </div>
@@ -142,3 +157,6 @@
         </div>
     </div>
 </div>
+@endsection
+
+
