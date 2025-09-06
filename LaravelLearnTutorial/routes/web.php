@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\NegativeController;
 use App\Http\Controllers\Admin\PositiveController;
 
 
@@ -35,6 +36,18 @@ Route::prefix('admin')->middleware('adminMiddleware')->group(function(){
             'update' => 'admin.positives.update',
             'edit' => 'admin.positives.edit',
             'destroy' => 'admin.positives.destroy',
+        ]
+    ]);
+
+    //negative's routes
+    Route::resource('negatives', NegativeController::class, [
+        'names' => [
+            'index' => 'admin.negatives.index',
+            'create' => 'admin.negatives.create',
+            'store' => 'admin.negatives.store',
+            'update' => 'admin.negatives.update',
+            'edit' => 'admin.negatives.edit',
+            'destroy' => 'admin.negatives.destroy',
         ]
     ]);
 });

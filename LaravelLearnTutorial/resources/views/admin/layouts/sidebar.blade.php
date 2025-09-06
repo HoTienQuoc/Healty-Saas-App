@@ -15,6 +15,11 @@
                 <i class="fa-regular fa-face-smile-beam"></i> Positives
             </a>
         </li>
+        <li>
+            <a href="{{route('admin.negatives.index')}}" class="nav-link text-white">
+                <i class="fa-regular fa-face-frown"></i> Negatives
+            </a>
+        </li>
     </ul>
     <hr>
     <div class="dropdown">
