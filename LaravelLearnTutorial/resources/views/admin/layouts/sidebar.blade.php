@@ -20,6 +20,11 @@
                 <i class="fa-regular fa-face-frown"></i> Negatives
             </a>
         </li>
+        <li>
+            <a href="{{route('admin.plans.index')}}" class="nav-link text-white">
+                <i class="fa-solid fa-chart-gantt"></i> Plans
+            </a>
+        </li>
     </ul>
     <hr>
     <div class="dropdown">

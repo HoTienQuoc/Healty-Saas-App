@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\PlanController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\NegativeController;
@@ -48,6 +49,18 @@ Route::prefix('admin')->middleware('adminMiddleware')->group(function(){
             'update' => 'admin.negatives.update',
             'edit' => 'admin.negatives.edit',
             'destroy' => 'admin.negatives.destroy',
+        ]
+    ]);
+
+    //plan's routes
+    Route::resource('plans', PlanController::class, [
+        'names' => [
+            'index' => 'admin.plans.index',
+            'create' => 'admin.plans.create',
+            'store' => 'admin.plans.store',
+            'update' => 'admin.plans.update',
+            'edit' => 'admin.plans.edit',
+            'destroy' => 'admin.plans.destroy',
         ]
     ]);
 });
