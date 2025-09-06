@@ -102,7 +102,7 @@
                                             </a>
                                             <a href="#"
                                                 onclick="deleteItem({{$product->id}})"
-                                                class="btn btn-sm btn-danger">
+                                                class="btn btn-sm btn-danger mb-1">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                             <form id="{{$product->id}}" action="{{route('admin.products.destroy',$product->id)}}" method="post">

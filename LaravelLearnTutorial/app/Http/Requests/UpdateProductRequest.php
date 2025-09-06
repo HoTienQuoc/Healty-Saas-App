@@ -24,7 +24,7 @@ class UpdateProductRequest extends FormRequest
         return [
             'name' => 'required|max:255|unique:products,name,'.$this->product->id,
             'description' => 'required|max:5000',
-            'image_path' => 'image|mimes:png,jpg|max:2048',
+            'image_path' => 'image|mimes:png,jpg,jpeg|max:2048',
         ];
     }
 

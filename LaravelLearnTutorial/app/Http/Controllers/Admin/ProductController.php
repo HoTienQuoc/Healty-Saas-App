@@ -38,6 +38,7 @@ class ProductController extends Controller
      */
     public function store(AddProductRequest $request)
     {
+
         if($request->validated()) {
             $data = $request->validated();
             $data['image_path'] = $this->saveImage($request->file('image_path'));
