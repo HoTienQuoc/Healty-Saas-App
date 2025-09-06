@@ -6,40 +6,40 @@
             </a>
         </li>
         <li>
-            <a href="#" class="nav-link text-white">
+            <a href="{{route('admin.products.index')}}" class="nav-link text-white">
                 <i class="fa-brands fa-product-hunt"></i> Products
             </a>
         </li>
-        <li>
-            <a href="#" class="nav-link text-white">
+        {{-- <li>
+            <a href="{{route('admin.positives.index')}}" class="nav-link text-white">
                 <i class="fa-regular fa-face-smile-beam"></i> Positives
             </a>
-        </li>
-        <li>
-            <a href="#" class="nav-link text-white">
+        </li> --}}
+        {{-- <li>
+            <a href="{{route('admin.negatives.index')}}" class="nav-link text-white">
                 <i class="fa-regular fa-face-frown"></i> Negatives
             </a>
         </li>
         <li>
-            <a href="#" class="nav-link text-white">
+            <a href="{{route('admin.users.index')}}" class="nav-link text-white">
                 <i class="fa-solid fa-users"></i> Users
             </a>
         </li>
         <li>
-            <a href="#" class="nav-link text-white">
+            <a href="{{route('admin.histories.index')}}" class="nav-link text-white">
                 <i class="fa-solid fa-clock-rotate-left"></i> Histories
             </a>
         </li>
         <li>
-            <a href="#" class="nav-link text-white">
+            <a href="{{route('admin.plans.index')}}" class="nav-link text-white">
                 <i class="fa-solid fa-chart-gantt"></i> Plans
             </a>
         </li>
         <li>
-            <a href="#" class="nav-link text-white">
+            <a href="{{route('admin.subscriptions.index')}}" class="nav-link text-white">
                 <i class="fa fa-dollar-sign"></i> Subscriptions
             </a>
-        </li>
+        </li> --}}
     </ul>
     <hr>
     <div class="dropdown">

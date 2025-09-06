@@ -22,14 +22,13 @@ class AddProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
             'name' => 'required|max:255|unique:products',
             'description' => 'required|max:5000',
             'image_path' => 'required|image|mimes:png,jpg|max:2048',
         ];
     }
 
-    public function messages(): array
+    public function messages()
     {
         return [
             'image_path.required' => 'The thumbnail is required.',

@@ -28,7 +28,7 @@ class UpdateProductRequest extends FormRequest
         ];
     }
 
-    public function messages(): array
+    public function messages()
     {
         return [
             'image_path.max' => 'The thumbnail must not be greater than 2MB.',

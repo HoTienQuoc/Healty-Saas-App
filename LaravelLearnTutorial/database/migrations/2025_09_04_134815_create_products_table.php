@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name')->unique();
             $table->text('description');
             $table->string('image_path');
-            $table->string('qr_code_path');
+            $table->string('qr_code_path')->nullable();
             $table->timestamps();
         });
     }

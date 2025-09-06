@@ -7,11 +7,10 @@ use Illuminate\Http\Request;
 use Endroid\QrCode\Builder\Builder;
 use App\Http\Controllers\Controller;
 use Endroid\QrCode\Writer\PngWriter;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\AddProductRequest;
 use App\Http\Requests\UpdateProductRequest;
-
+use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
 {
@@ -20,9 +19,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
-        return view('admin.product.index')->with([
-            'products'=>Product::with(['positives','negatives'])->latest()->get()
+        return view('admin.products.index')->with([
+            'products' => Product::with(['positives','negatives'])->latest()->get()
         ]);
     }
 
@@ -32,7 +30,7 @@ class ProductController extends Controller
     public function create()
     {
         //
-        return view( 'admin.products.create');
+        return view('admin.products.create');
     }
 
     /**
@@ -40,8 +38,7 @@ class ProductController extends Controller
      */
     public function store(AddProductRequest $request)
     {
-        //
-        if($request->validated()){
+        if($request->validated()) {
             $data = $request->validated();
             $data['image_path'] = $this->saveImage($request->file('image_path'));
             $product = Product::create($data);
@@ -69,7 +66,6 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         //
-        //
         return view('admin.products.edit')->with([
             'product' => $product
         ]);
@@ -80,7 +76,6 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
-        //
         //
         if($request->validated()) {
             $data = $request->validated();
@@ -104,7 +99,6 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
         //remove the product image
         $this->removeProductImageFromStorage($product->image_path);
         //remove the product qr code
@@ -116,21 +110,21 @@ class ProductController extends Controller
         ]);
     }
 
-
-
     /**
      * Upload and save product image
      */
-    public function saveImage($file): string{
-        $image_name = time ().'_'.$file->getClientOriginalName();
-        $file->storeAs('images/products',$image_name, 'public');
-        return 'storage/images/products'.$image_name;
+    public function saveImage($file)
+    {
+        $image_name = time().'_'.$file->getClientOriginalName();
+        $file->storeAs('images/products',$image_name,'public');
+        return 'storage/images/products/'.$image_name;
     }
 
     /**
      * Save the product qr code
      */
-    public function saveProductQRCode($productId): string{
+    public function saveProductQRCode($productId)
+    {
         //generate the qr code
         $builder = new Builder(
             writer: new PngWriter(),
@@ -153,7 +147,8 @@ class ProductController extends Controller
     /**
      * Merge the product image with the qr code
      */
-    public function mergeProductImageWithQRCode($product){
+    public function mergeProductImageWithQRCode($product)
+    {
         //get the product image
         $productImagePath = $product->image_path;
 
@@ -202,6 +197,4 @@ class ProductController extends Controller
             File::delete($path);
         }
     }
-
-
 }
