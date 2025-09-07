@@ -49,10 +49,13 @@ class User extends Authenticatable
         ];
     }
 
-    public function histories(){
-        return $this->hasMany(History::class);
+    public function histories()
+    {
+        return $this->hasMany(History::class)->with('product');
     }
-    public function subscriptions(){
-        return $this->hasMany(Subscription::class);
+
+    public function subscriptions()
+    {
+        return $this->hasMany(Subscription::class)->with('plan');
     }
 }

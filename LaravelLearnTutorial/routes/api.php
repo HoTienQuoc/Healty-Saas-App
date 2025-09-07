@@ -40,6 +40,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
 
 
+
 //user guest routes
 Route::post('user/register', [UserController::class, 'store']);
 Route::post('user/login', [UserController::class, 'auth']);
